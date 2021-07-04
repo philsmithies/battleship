@@ -2,6 +2,7 @@ body{
   background-color: grey;
 }
 
-h2{
+h1{
+  font-size: 4rem;
   color: white;
 }

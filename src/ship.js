@@ -1,18 +1,17 @@
-const Ship = (l) => {
-  let length = l
-  let body = []
+const Ship = (coordinatesArray) => {
+  const shipCoordinates = coordinatesArray
 
-  for(i = 0; i < length; i++){
-    body.push('S')
-  }
+  // for(i = 0; i < length; i++){
+  //   shipCoordinates.push('S')
+  // }
 
   const hit = (value) => {
-    body[value] = 'X'
+    shipCoordinates[value] = 'X'
   }
 
   const isSunk = () => {
     for(i = 0; i < length; i++){
-      if(body[i] == 'S') return false
+      if(shipCoordinates[i] == 'S') return false
     }
     return true
   }
@@ -20,9 +19,9 @@ const Ship = (l) => {
   return {
     hit,
     isSunk,
-    get length() {return length},
+    get shipCoordinates() {return shipCoordinates},
     get body() {return body}
   }
 }
 
-module.exports = Ship
+export { Ship };

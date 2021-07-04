@@ -1,35 +1,28 @@
-const Ship = require('./Ship')
+import { Ship } from './Ship';
+
+// EMPTY SPOT = 0
+// TAKEN SPOT = S
+// HIT SHIP = X
 
 const GameBoard = () => {
-  let board = []
-  let i = 0
-  while(i < 100){
-    board[i] = 'O'
-    i +=1
+  let ships = []
+  let missedShots = []
+
+  const placeShip = (...coordinates) => {
+    const newShip = Ship(coordinates)
+    ships.push(newShip)
   }
 
-  const placeShip = (counterX = 0, counterY = 0, shipLength) => {
-    let newShip = Ship(shipLength)
-    let x = counterX
-    let y = counterY
-    for (let i = 0; i < newShip.length; i++){
-      board[x] = newShip
-      x += 1
-    }
-    console.log(board)
-  }
-
-  const receiveAttack = (moveX) => {
-    if (board[moveX] != 'O'){
-      board[0].hit(0)
-      console.log(board[0].body)
-      board[moveX] = 'HIT'
-      // console.log(board[moveX])
-      // console.log('HIT A SHIP')
-    } else {
-      board[moveX] = 'NEGATIVE'
-      console.log('MISSED')
-    }
+  const receiveAttack = (coordinate) => {
+    const hitShip = ships.find(ship => {
+      if ( ship.shipCoordinates.includes(coordinate)) {
+        ship.hit(ship.shipCoordinates.indexOf(coordinate));
+        console.log("HIT 🔥 " + ships[0].shipCoordinates)
+      } else {
+        missedShots.push(coordinate)
+        console.log('MISSED ' + missedShots)
+      }
+    })
   }
 
   const resetBoard = () => {
@@ -44,8 +37,8 @@ const GameBoard = () => {
     resetBoard,
     receiveAttack,
     placeShip, 
-    get board() {return board}
+    get ships() {return ships}
   }
 }
 
-module.exports = GameBoard
+export { GameBoard }

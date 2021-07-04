@@ -1,13 +1,14 @@
 import './style.css'
-const GameBoard = require ('./GameBoard')
-const newGame = GameBoard()
+import { GameBoard } from './GameBoard';
 
 function component() {
   const element = document.createElement('div');
-  newGame.board
-  newGame.placeShip(0, 0, 3)
-  newGame.receiveAttack(1)
-  element.innerHTML = _.join(['Hello', 'webpack'], ' ');
+  const game = GameBoard();
+  game.placeShip('C1', 'C2', 'C3')
+  game.receiveAttack('C1')
+  game.receiveAttack('d1')
+
+  element.innerHTML = _.join(['Tiny', 'BattleShip'], ' ');
 
   return element;
 }
