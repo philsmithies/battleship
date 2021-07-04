@@ -4,8 +4,9 @@ const newGame = GameBoard()
 
 function component() {
   const element = document.createElement('div');
-  console.log(newGame.board)
-  console.log(newGame.placeShip(0, 0, 3))
+  newGame.board
+  newGame.placeShip(0, 0, 3)
+  newGame.receiveAttack(1)
   element.innerHTML = _.join(['Hello', 'webpack'], ' ');
 
   return element;

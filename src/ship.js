@@ -12,7 +12,7 @@ const Ship = (l) => {
 
   const isSunk = () => {
     for(i = 0; i < length; i++){
-      if(body[i] == '-') return false
+      if(body[i] == 'S') return false
     }
     return true
   }
