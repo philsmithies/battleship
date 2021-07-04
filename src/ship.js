@@ -10,8 +10,16 @@ const Ship = (l) => {
     body[value] = 'X'
   }
 
+  function isSunk() {
+    for(i = 0; i < length; i++){
+      if(body[i] == '-') return false
+    }
+    return true
+  }
+
   return {
     hit,
+    isSunk,
     get length() {return length},
     get body() {return body}
   }

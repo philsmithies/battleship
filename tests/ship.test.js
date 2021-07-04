@@ -10,7 +10,13 @@ describe('ship initialisation', () => {
   })
   test('it can have a hit placed upon it', () =>{
     expect(newShip.body).toEqual(['-', '-', '-']) 
-    expect(newShip.hit(0))
+    newShip.hit(0)
     expect(newShip.body).toEqual(['X', '-', '-']) 
+  })
+  test('it can report when the ship has been sunk', () => {
+    newShip.hit(0)
+    newShip.hit(1)
+    newShip.hit(2)
+    expect(newShip.isSunk()).toBe(true)
   })
 })
