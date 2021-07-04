@@ -3,14 +3,14 @@ const Ship = (l) => {
   let body = []
 
   for(i = 0; i < length; i++){
-    body.push('-')
+    body.push('S')
   }
 
-  function hit(value) {
+  const hit = (value) => {
     body[value] = 'X'
   }
 
-  function isSunk() {
+  const isSunk = () => {
     for(i = 0; i < length; i++){
       if(body[i] == '-') return false
     }
