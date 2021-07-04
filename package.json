@@ -23,6 +23,7 @@
   "author": "Phil Smithies <philsmithies@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "css-loader": "^5.2.6",
     "lodash": "^4.17.21"
   }
 }
