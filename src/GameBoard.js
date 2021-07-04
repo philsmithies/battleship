@@ -2,20 +2,27 @@ const Ship = require('./Ship')
 
 const GameBoard = () => {
   let board = []
-
-  for (let i = 0; i < 100; i++){
+  let i = 0
+  while(i < 100){
     board[i] = 'O'
+    i +=1
   }
 
-  const placeShip = (x, y, shipLength) => {
-    const newShip = Ship(shipLength)
+  const placeShip = (counterX = 0, counterY = 0, shipLength) => {
+    let newShip = Ship(shipLength)
+    let x = counterX
+    let y = counterY
     for (let i = 0; i < newShip.length; i++){
-      board[i] = newShip.body[i]
+      board[x] = newShip.body[i]
+      x += 1
     }
   }
 
-  const receiveAttack = (moveX, moveY) => {
-
+  const receiveAttack = (moveX) => {
+    if (board[moveX] != ''){
+      board[moveX] = 'HIT'
+      console.log('HIT A SHIP')
+    }
   }
 
   return {
