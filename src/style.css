@@ -6,3 +6,23 @@ h1{
   font-size: 4rem;
   color: white;
 }
+
+#battleGrid{
+  display: grid;
+  grid-template-columns: repeat(10, 40px);
+  grid-template-rows: repeat(10, 40px);
+}
+
+.boardSquare{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: solid 2px red;
+  background-color: blanchedalmond;
+  transition: 0.1s ease-in;
+}
+
+.boardSquare:hover{
+  cursor: pointer;
+  background-color: rgb(201, 185, 160);
+}

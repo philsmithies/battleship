@@ -15,11 +15,11 @@ const GameBoard = () => {
     const hitShip = ships.find((ship) => {
       if (ship.shipCoordinates.includes(coordinate)) {
         ship.hit(ship.shipCoordinates.indexOf(coordinate));
-        console.log("HIT 🔥 " + ships[0].shipCoordinates);
-        console.log(ships[0]);
+        // console.log("HIT 🔥 " + ships[0].shipCoordinates);
+        // console.log(ships[0]);
       } else {
         missedShots.push(coordinate);
-        console.log("MISSED " + missedShots);
+        // console.log("MISSED " + missedShots);
       }
     });
   };
