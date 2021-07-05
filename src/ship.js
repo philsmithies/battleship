@@ -1,22 +1,24 @@
 const Ship = (coordinatesArray) => {
-  const shipCoordinates = coordinatesArray
+  const shipCoordinates = coordinatesArray;
 
-  const hit = (value) => {
-    shipCoordinates[value] = 'X'
-  }
+  const hit = (index) => {
+    shipCoordinates[index] = "X";
+  };
 
-  const isSunk = () => {
-    for(i = 0; i < length; i++){
-      if(shipCoordinates[i] == 'X') return true
+  const isSunk = (shipCoordinates) => {
+    for (let i = 0; i < shipCoordinates.length; i++) {
+      if (shipCoordinates[i] == "X") return true;
     }
-    return false
-  }
+    return false;
+  };
 
   return {
     hit,
     isSunk,
-    get shipCoordinates() {return shipCoordinates},
-  }
-}
+    get shipCoordinates() {
+      return shipCoordinates;
+    },
+  };
+};
 
 export { Ship };
