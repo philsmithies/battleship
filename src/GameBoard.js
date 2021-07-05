@@ -1,7 +1,5 @@
 import { Ship } from './Ship';
 
-// EMPTY SPOT = 0
-// TAKEN SPOT = S
 // HIT SHIP = X
 
 const GameBoard = () => {
@@ -26,11 +24,8 @@ const GameBoard = () => {
   }
 
   const resetBoard = () => {
-    i = 0
-    while(i < 100){
-      board[i] = 'O'
-      i +=1
-    }
+    missedShots = []
+    ships = []
   }
 
   return {

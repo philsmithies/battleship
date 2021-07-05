@@ -6,7 +6,7 @@ function component() {
   const game = GameBoard();
   game.placeShip('C1', 'C2', 'C3')
   game.receiveAttack('C1')
-  game.receiveAttack('d1')
+  game.receiveAttack('D1')
 
   element.innerHTML = _.join(['Tiny', 'BattleShip'], ' ');
 

@@ -1,9 +1,9 @@
-const Ship = require('../src/Ship')
-const newShip = Ship(3)
+import { Ship } from '../src/Ship'
+const newShip = Ship('C1', 'C2', 'C3')
 
 describe('ship initialisation', () => {
-  test('it can be given a length', () =>{
-    expect(newShip.length).toBe(3)
+  test.only('it can be given coordinates', () =>{
+    expect(newShip.shipCoordinates.length).toBe(3)
   })
   test('it can store whether it has been hit or not', () =>{
     expect(newShip.body).toEqual(['S', 'S', 'S']) 
