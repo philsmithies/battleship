@@ -4,24 +4,31 @@ import { Ship } from "./Ship";
 
 const GameBoard = () => {
   let ships = [];
+  let hitSpots = []
   let missedShots = [];
+
+  const getShips = () => {return ships} ;
 
   const placeShip = (...coordinates) => {
     const newShip = Ship(coordinates);
+    console.log(newShip.getShipCoordinates)
     ships.push(newShip);
   };
 
-  const receiveAttack = (coordinate) => {
-    const hitShip = ships.find((ship) => {
-      if (ship.shipCoordinates.includes(coordinate)) {
-        ship.hit(ship.shipCoordinates.indexOf(coordinate));
-        console.log("HIT 🔥 " + ships[0].shipCoordinates);
-        console.log(ships[0]);
-      } else {
+
+  const receiveAttack = coordinate => {
+    const attackedShip = ships.find(ship =>
+        ship.getShipCoordinates.includes(coordinate),
+    );
+    if (!attackedShip) {
+      console.log('missed')
         missedShots.push(coordinate);
-        console.log("MISSED " + missedShots);
-      }
-    });
+    } else {
+
+      hitSpots.push(coordinate)
+      console.log('hit' + hitSpots) 
+      attackedShip.hit(attackedShip.getShipCoordinates.indexOf(coordinate));
+    }
   };
 
   const resetBoard = () => {
@@ -36,9 +43,13 @@ const GameBoard = () => {
     get missedShots() {
       return missedShots;
     },
+    get hitSpots() {
+      return hitSpots;
+    },
     get ships() {
       return ships;
     },
+    getShips,
   };
 };
 

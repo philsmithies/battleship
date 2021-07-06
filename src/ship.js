@@ -1,8 +1,9 @@
 const Ship = (coordinatesArray) => {
-  const shipCoordinates = coordinatesArray;
+
+  const getShipCoordinates = coordinatesArray;
 
   const hit = (index) => {
-    shipCoordinates[index] = "X";
+    getShipCoordinates[index] = "X";
   };
 
   const isSunk = (shipCoordinates) => {
@@ -15,8 +16,8 @@ const Ship = (coordinatesArray) => {
   return {
     hit,
     isSunk,
-    get shipCoordinates() {
-      return shipCoordinates;
+    get getShipCoordinates() {
+      return getShipCoordinates;
     },
   };
 };
