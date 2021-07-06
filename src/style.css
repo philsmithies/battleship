@@ -5,14 +5,29 @@ body{
 h1{
   font-size: 4rem;
   color: white;
+  text-align: center;
+}
+
+#turn {
+  font-size: 1.5rem;
+  color: white;
+  text-align: center;
+}
+
+h2{
+  color: white;
+  margin: 2em;
 }
 
 .wrapper {
+  margin: 0 auto;
   display: flex;
-  border: 2px solid red;
+  justify-content: space-around;
+  max-width: 800px;
 }
 
-#battleGrid, #player2Grid{
+#player1, #player2{
+  margin: 0 2em;
   display: grid;
   grid-template-columns: repeat(10, 40px);
   grid-template-rows: repeat(10, 40px);
@@ -22,9 +37,14 @@ h1{
   display: flex;
   align-items: center;
   justify-content: center;
-  border: solid 2px red;
-  background-color: blanchedalmond;
+  border: solid 2px blue;
+  background-color: black;
   transition: 0.1s ease-in;
+  color: white;
+}
+
+.boardSquare p {
+  color: white;
 }
 
 .boardSquare:hover{

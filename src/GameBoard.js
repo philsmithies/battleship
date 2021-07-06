@@ -23,7 +23,6 @@ const GameBoard = () => {
       missedShots.push(coordinate);
     } else {
       hitSpots.push(coordinate) 
-      attackedShip.hit(attackedShip.getShipCoordinates.indexOf(coordinate));
     }
   };
 
