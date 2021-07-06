@@ -10,6 +10,8 @@ const DisplayController = () => {
 
       boardSquare.addEventListener('click', () =>{
         console.log('Clicked ' + i)
+        gameboard.receiveAttack(i)
+        updateBoard(gameboard)
       })
 
       grid.appendChild(boardSquare)

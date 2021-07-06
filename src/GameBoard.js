@@ -16,7 +16,7 @@ const GameBoard = () => {
   };
 
 
-  const receiveAttack = coordinate => {
+  const receiveAttack = (coordinate) => {
     const attackedShip = ships.find(ship =>
         ship.getShipCoordinates.includes(coordinate),
     );
