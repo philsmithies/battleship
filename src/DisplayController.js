@@ -1,11 +1,7 @@
-
-import { Player } from "./Player";
-
 const DisplayController = () => {
   const grid = document.getElementById('battleGrid')
 
   const buildBoard = (gameboard) => {
-    // console.log(gameboard.ships[0].shipCoordinates[i])
     for(let i = 0; i < 100; i++){
       const boardSquare = document.createElement('div')
       boardSquare.classList.add('boardSquare')
@@ -21,15 +17,12 @@ const DisplayController = () => {
   }
 
   const updateBoard = (gameboard) => {
-    console.log(grid)
-      gameboard.ships.forEach(ship => {
-        for(let i = 0; i < ship.shipCoordinates.length; i++){
-            document.getElementById(i).innerText = 'S'
-          }
-      });
+    const hitSpots = gameboard.hitSpots;
+    hitSpots.forEach(spot => {
+      document.getElementById(spot).innerText = 'HIT'
+    });
   }
 
-  
   return {
     updateBoard,
     buildBoard
