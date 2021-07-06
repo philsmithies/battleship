@@ -11,22 +11,18 @@ const GameBoard = () => {
 
   const placeShip = (...coordinates) => {
     const newShip = Ship(coordinates);
-    console.log(newShip.getShipCoordinates)
     ships.push(newShip);
   };
-
 
   const receiveAttack = (coordinate) => {
     const attackedShip = ships.find(ship =>
         ship.getShipCoordinates.includes(coordinate),
     );
-    if (!attackedShip) {
-      console.log('missed')
-        missedShots.push(coordinate);
+ 
+    if (!attackedShip && (hitSpots.find(el => el !== coordinate))) {
+      missedShots.push(coordinate);
     } else {
-
-      hitSpots.push(coordinate)
-      console.log('hit' + hitSpots) 
+      hitSpots.push(coordinate) 
       attackedShip.hit(attackedShip.getShipCoordinates.indexOf(coordinate));
     }
   };
